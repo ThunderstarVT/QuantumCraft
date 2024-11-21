@@ -4,6 +4,7 @@ import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import net.thunderstar.quantum_craft.objects.items.TooltipItem;
+import net.thunderstar.quantum_craft.util.Reference;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -134,22 +135,24 @@ public class Elements {
     private List<List<List<RegistryObject<Item>>>> registered_items = new ArrayList<>();
     private int[] min_neutrons;
 
-    public Elements(DeferredRegister<Item> itemRegister, int elements, int[] min_neutrons, int[] max_neutrons, int[] max_electrons) {
+    public Elements(DeferredRegister<Item> itemRegister, int elements, int[] min_neutrons, int[] max_neutrons, int[][] ex_neutrons, int[] max_electrons) {
         this.min_neutrons = min_neutrons;
 
         for (int P = 0; P <= elements; P++) {
             List<List<RegistryObject<Item>>> n_list = new ArrayList<>();
             for (int N = min_neutrons[P]; N <= max_neutrons[P]; N++) {
                 List<RegistryObject<Item>> e_list = new ArrayList<>();
-                for (int E = 0; E <= max_electrons[P]; E++) {
-                    String name = element_names[P] + "-" + (P + N);
-                    if (P != E) {
-                        name = name + "_" + (P - E);
-                    }
+                if (!Reference.inArrayInt(N, ex_neutrons[P])) {
+                    for (int E = 0; E <= max_electrons[P]; E++) {
+                        String name = element_names[P] + "-" + (P + N);
+                        if (P != E) {
+                            name = name + "_" + (P - E);
+                        }
 
-                    String finalName = name; // some weird java stuff
-                    e_list.add(itemRegister.register(name,
-                            () -> new TooltipItem(new Item.Properties(), finalName, 4)));
+                        String finalName = name; // some weird java stuff
+                        e_list.add(itemRegister.register(name,
+                                () -> new TooltipItem(new Item.Properties(), finalName, 4)));
+                    }
                 }
                 n_list.add(e_list);
             }

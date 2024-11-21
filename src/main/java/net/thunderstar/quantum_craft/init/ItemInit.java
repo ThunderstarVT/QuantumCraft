@@ -26,6 +26,7 @@ public class ItemInit {
     public static final Elements ELEMENTS = new Elements(ITEMS, 118,
             ItemReference.min_neutrons,
             ItemReference.max_neutrons,
+            ItemReference.ex_neutrons,
             ItemReference.max_electrons);
 
 
