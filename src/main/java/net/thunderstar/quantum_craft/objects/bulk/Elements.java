@@ -135,7 +135,7 @@ public class Elements {
     private List<List<List<RegistryObject<Item>>>> registered_items = new ArrayList<>();
     private int[] min_neutrons;
 
-    public Elements(DeferredRegister<Item> itemRegister, int elements, int[] min_neutrons, int[] max_neutrons, int[][] ex_neutrons, int[] max_electrons) {
+    public Elements(DeferredRegister<Item> itemRegister, int elements, int[] min_neutrons, int[] max_neutrons, int[][] ex_neutrons, int[][] ion_nums) {
         this.min_neutrons = min_neutrons;
 
         for (int P = 0; P <= elements; P++) {
@@ -143,10 +143,10 @@ public class Elements {
             for (int N = min_neutrons[P]; N <= max_neutrons[P]; N++) {
                 List<RegistryObject<Item>> e_list = new ArrayList<>();
                 if (!Reference.inArrayInt(N, ex_neutrons[P])) {
-                    for (int E = 0; E <= max_electrons[P]; E++) {
+                    for (int e : ion_nums[P]) {
                         String name = element_names[P] + "-" + (P + N);
-                        if (P != E) {
-                            name = name + "_" + (P - E);
+                        if (e != 0) {
+                            name = name + "_" + e;
                         }
 
                         String finalName = name; // some weird java stuff

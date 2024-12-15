@@ -27,7 +27,7 @@ public class ItemInit {
             ItemReference.min_neutrons,
             ItemReference.max_neutrons,
             ItemReference.ex_neutrons,
-            ItemReference.max_electrons);
+            ItemReference.ion_nums);
 
 
     public static void register(IEventBus eventBus) {
