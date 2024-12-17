@@ -52,7 +52,7 @@
             const green = Math.round((Math.sin(frequency * time + (2 * Math.PI) / 3) + 1) * 127.5);
             const blue = Math.round((Math.sin(frequency * time + (4 * Math.PI) / 3) + 1) * 127.5);
 
-            return `#${((1 << 24) | (red << 16) | (green << 8) | blue).toString(16).slice(1).toUpperCase()}`;
+            return `#${((1 << 24) | (red << 16) | (green << 8) | blue).toString(16).slice(1)}`;
         }
     </script>
 </html>
