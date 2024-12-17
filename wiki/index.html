@@ -47,13 +47,11 @@
         );
 
         function getRainbowColor(time) {
-            // Normalize the time input for smooth looping
-            const frequency = 2 * Math.PI; // Full wave
-            const red = Math.round((Math.sin(frequency * time + 0) + 1) * 127.5); // Phase shift 0
-            const green = Math.round((Math.sin(frequency * time + (2 * Math.PI) / 3) + 1) * 127.5); // Phase shift 120°
-            const blue = Math.round((Math.sin(frequency * time + (4 * Math.PI) / 3) + 1) * 127.5); // Phase shift 240°
+            const frequency = 2 * Math.PI;
+            const red = Math.round((Math.sin(frequency * time + 0) + 1) * 127.5);
+            const green = Math.round((Math.sin(frequency * time + (2 * Math.PI) / 3) + 1) * 127.5);
+            const blue = Math.round((Math.sin(frequency * time + (4 * Math.PI) / 3) + 1) * 127.5);
 
-            // Convert to hex and return
             return `#${((1 << 24) | (red << 16) | (green << 8) | blue).toString(16).slice(1).toUpperCase()}`;
         }
     </script>
