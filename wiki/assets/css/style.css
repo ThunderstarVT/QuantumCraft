@@ -31,7 +31,7 @@ body {
 
 .header nav div {
     width: 100vw;
-    min-width: 160px;
+    min-width: 176px;
     height: auto;
     box-sizing: border-box;
     border: 2px solid #000000;
@@ -44,7 +44,7 @@ main {
     overflow-x: hidden;
 }
 
-main div {
+#container {
     margin: 8px;
 }
 
@@ -55,6 +55,22 @@ main::-webkit-scrollbar {
 .titlebar {
     font-weight: bolder;
     font-size: 32px
+}
+
+#mp-topbanner {
+    background-color: #f9f9f9;
+    border-color: #dddddd;
+}
+
+.box {
+    border: 1px solid #aaa;
+    padding: 0 8px;
+    margin-top: 4px;
+}
+
+#mp-welcome {
+    text-align: center;
+    margin: 12px;
 }
 
 footer {
