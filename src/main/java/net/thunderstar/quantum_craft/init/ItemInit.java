@@ -20,7 +20,16 @@ public class ItemInit {
             () -> new TooltipItem(new Item.Properties().rarity(Rarity.EPIC), "test_item", 2));
 
 
+    public static final RegistryObject<Item> CORE_URANIUM_235 = ITEMS.register("core_uranium-235",
+            () -> new TooltipItem(new Item.Properties(), "core_uranium-235", 0));
+
+
+    public static final RegistryObject<Item> CID = ITEMS.register("cid",
+            () -> new TooltipItem(new Item.Properties(), "cid", 1)); // this item will explode when crafted
+
+
     public static final IngotMaterial URANIUM = new IngotMaterial(ITEMS, "uranium");
+    public static final IngotMaterial DEPLETED_URANIUM = new IngotMaterial(ITEMS, "depleted_uranium");
 
 
     public static final Elements ELEMENTS = new Elements(ITEMS, 118,
